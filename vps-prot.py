@@ -1,5 +1,5 @@
-#Omer Erbilgin
-#Basic DDOS protection for vps
+#ErroR Devlopment 
+#DDoS Protection for vps enabled 
 
 import os
 import time
