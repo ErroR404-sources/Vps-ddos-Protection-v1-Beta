@@ -3,32 +3,18 @@
 
 function akguy_banner() {
     cat << "EOF"
- ▄████████    ▄█   ▄█▄  ▄████████    ▄████████ ▄██   ▄      ▄███████▄     ███      ▄██████▄     ▄██████▄  ███    █▄  ▄██   ▄
-  ███    ███   ███ ▄███▀ ███    ███   ███    ███ ███   ██▄   ███    ███ ▀█████████▄ ███    ███   ███    ███ ███    ███ ███   ██▄
-  ███    ███   ███▐██▀   ███    █▀    ███    ███ ███▄▄▄███   ███    ███    ▀███▀▀██ ███    ███   ███    █▀  ███    ███ ███▄▄▄███
-  ███    ███  ▄█████▀    ███         ▄███▄▄▄▄██▀ ▀▀▀▀▀▀███   ███    ███     ███   ▀ ███    ███  ▄███        ███    ███ ▀▀▀▀▀▀███
-▀███████████ ▀▀█████▄    ███        ▀▀███▀▀▀▀▀   ▄██   ███ ▀█████████▀      ███     ███    ███ ▀▀███ ████▄  ███    ███ ▄██   ███
-  ███    ███   ███▐██▄   ███    █▄  ▀███████████ ███   ███   ███            ███     ███    ███   ███    ███ ███    ███ ███   ███
-  ███    ███   ███ ▀███▄ ███    ███   ███    ███ ███   ███   ███            ███     ███    ███   ███    ███ ███    ███ ███   ███
-  ███    █▀    ███   ▀█▀ ████████▀    ███    ███  ▀█████▀   ▄████▀         ▄████▀    ▀██████▀    ████████▀  ████████▀   ▀█████▀
-               ▀                      ███    ███
+ ....................########...########...########..##....##..########..########.
+....................##........##....##..##....##..###...##..##.....##.##.....##
+....................##........##........##........####..##..##.....##.##.....##
+....................######....##...####.##...####.##.##.##..##.....##.########.
+....................##........##....##..##....##..##..####..##.....##.##...##..
+....................##........##....##..##....##..##...###..##.....##.##....##.
+....................########...########...########..##....##..########..##.....##
 EOF
 }
 
 # ###### SECTIONS ######
-# 1. CREATE SWAP / if no swap exists, create 1 GB swap
-# 2. UPDATE AND UPGRADE / update operating system & pkgs
-# 3. INSTALL FAVORED PACKAGES / useful tools & utilities
-# 4. INSTALL CRYPTO PACKAGES / common crypto packages
-# 5. USER SETUP / add new sudo user, copy SSH keys
-# 6. SSH CONFIG / change SSH port, disable root login
-# 7. UFW CONFIG / UFW - add rules, harden, enable firewall
-# 8. HARDENING / before rules, secure shared memory, etc
-# 9. GOOGLE AUTH / enable 2fa using Google Authenticator
-# 10. KSPLICE INSTALL / automatically update without reboot
-# 11. MOTD EDIT / replace boring banner with customized one
-# 12. RESTART SSHD / apply settings by restarting systemctl
-# 13. INSTALL COMPLETE / display new SSH and login info
+# 13. After INSTALL COMPLETE / display new SSH and login info
 
 # Add to log command and display output on screen
 # echo " $(date +%m.%d.%Y_%H:%M:%S) : $MESSAGE" | tee -a "$LOGFILE"
@@ -110,9 +96,9 @@ function begin_log() {
     sleep 2
 }
 
-#########################
-## CHECK & CREATE SWAP ##
-#########################
+###################################₹₹
+## CHECK & CREATE SWAP For Error404##
+##################################₹₹
 
 function create_swap() {
     # Check for and create swap file if necessary
@@ -160,7 +146,7 @@ function update_upgrade() {
     echo -e -n "${lightcyan}"
     printf "  ___  ____    _   _           _       _ \n" | tee -a "$LOGFILE"
     printf " / _ \/ ___|  | | | |_ __   __| | __ _| |_ ___ \n" | tee -a "$LOGFILE"
-    printf "| | | \\___ \\  | | | | '_ \\ / _\` |/ _\` | __/ _ \\ \n" | tee -a "$LOGFILE"
+    printf "| | | \\___ \ \  | | | | '_ \\  / _\` |/ _\` | __/ _ \\ \n" | tee -a "$LOGFILE"
     printf "| |_| |___) | | |_| | |_) | (_| | (_| | ||  __/ \n" | tee -a "$LOGFILE"
     printf " \___/|____/   \___/| .__/ \__,_|\__,_|\__\___| \n" | tee -a "$LOGFILE"
     printf "                    |_| \n"
@@ -242,9 +228,9 @@ function favored_packages() {
 
 #  PROMPT WHETHER USER WANTS TO INSTALL COMMON CRYPTO PACKAGES OR NOT
 
-#####################
-## CRYPTO PACKAGES ##
-#####################
+####################################
+## CRYPTO PACKAGES Recommended No ##
+####################################
 function crypto_packages() {
     echo -e -n "${lightcyan}"
     figlet Crypto Setup | tee -a "$LOGFILE"
@@ -421,9 +407,9 @@ function add_user() {
     echo -e -n "${nocolor}"
 }
 
-################
-## SSH CONFIG ##
-################
+########################
+## Changed SSH CONFIG ##
+#######################
 
 function collect_sshd() {
     # Prompt for custom SSH port between 11000 and 65535
@@ -674,9 +660,9 @@ function disable_passauth() {
     echo -e -n "${nocolor}"
 }
 
-################
-## UFW CONFIG ##
-################
+################################
+## DDos Protection UFW CONFIG ##
+################################
 
 function ufw_config() {
     # query user to disable password authentication or not
@@ -707,7 +693,7 @@ function ufw_config() {
     
     if [ "${FIREWALLP,,}" = "Y" ] || [ "${FIREWALLP,,}" = "y" ]
     then	echo -e -n "${nocolor}"
-        # make sure ufw is installed #
+        # make sure ufw is installed in Your VM vps #
         apt-get install ufw -qqy >> $LOGFILE 2>&1
         # add firewall rules
         echo -e -n "${white}"
@@ -723,7 +709,7 @@ function ufw_config() {
         echo -e "------------------------- \n" | tee -a "$LOGFILE"
         echo -e -n "${nocolor}"
         sleep 1
-        # wait until after SSHD is restarted to enable firewall to not break SSH
+        # wait until after SSH is restarted to enable firewall to not break SSH
     else	echo -e -n "${yellow}"
         echo -e "---------------------------------------------------- " | tee -a "$LOGFILE"
         echo -e " ** User chose not to setup firewall at this time **"  | tee -a "$LOGFILE"
@@ -740,12 +726,12 @@ function ufw_config() {
     echo -e -n "${nocolor}"
 }
 
-################
-## Hardening  ##
-################
+#######################
+## ERROR Devlopment  ##
+######################
 
 function server_hardening() {
-    # prompt users on whether to harden server or not
+    # prompt users on whether to server or not
     echo -e -n "${lightcyan}"
     figlet Get Hard | tee -a "$LOGFILE"
     echo -e -n "${yellow}"
@@ -754,7 +740,7 @@ function server_hardening() {
     echo -e "-------------------------------------------------- \n" | tee -a "$LOGFILE"
     echo -e -n "${lightcyan}"
     echo -e " The next steps are to secure your server's shared memory, enable"
-    echo -e " DDOS protection, harden the networking layer, and enable automatic"
+    echo -e " DDOS protection, ErroR networking layer, and enable automatic"
     echo -e " installation of security updates.\n"
 
         echo -e -n "${cyan}"
@@ -1071,11 +1057,11 @@ function ksplice_install() {
 }
 
 ###################
-## MOTD Install  ##
+## Banner Install  ##
 ###################
 
 function motd_install() {
-    # prompt users to install custom MOTD or not
+    # prompt users to install custom BANNER or not
     echo -e -n "${lightcyan}"
     figlet Enhance MOTD | tee -a "$LOGFILE"
     echo -e -n "${yellow}"
@@ -1083,7 +1069,7 @@ function motd_install() {
     echo -e " $(date +%m.%d.%Y_%H:%M:%S) : PROMPT USER TO INSTALL MOTD " | tee -a "$LOGFILE"
     echo -e "--------------------------------------------------- \n" | tee -a "$LOGFILE"
     echo -e -n "${lightcyan}"
-    echo -e " The normal MOTD banner displayed after a successful SSH login"
+    echo -e " The normal  banner displayed after a successful SSH login"
     echo -e " is pretty boring so this mod edits it to include more useful"
     echo -e " information along with a login banner prohibiting unauthorized"
     echo -e " access.  All modifications are strictly cosmetic.\n"
@@ -1139,7 +1125,7 @@ function motd_install() {
 }
 
 ##################
-## Restart SSHD ##
+## Restart SSH ##
 ##################
 
 function restart_sshd() {
@@ -1208,9 +1194,9 @@ function restart_sshd() {
     fi
 }
 
-######################
-## Install Complete ##
-######################
+##############################₹₹₹₹₹₹
+## DDoS Protection Install Complete ##
+#############################₹₹₹₹₹₹
 
 function install_complete() {
     # Display important login variables before exiting script
@@ -1263,15 +1249,7 @@ function display_banner() {
     echo -e "${lightcyan}"
     cat << "EOF"
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-     _    _  __                     _         ____ _   ___   __
-    / \  | |/ /___ _ __ _   _ _ __ | |_ ___  / ___| | | \ \ / /
-   / _ \ | ' // __| '__| | | | '_ \| __/ _ \| |  _| | | |\ V /
-  / ___ \| . \ (__| |  | |_| | |_) | || (_) | |_| | |_| | | |
- /_/   \_\_|\_\___|_|   \__, | .__/ \__\___/ \____|\___/  |_|
-                        |___/|_|
-            __  __             __  __  ___          __
-  -->  \  /|__)/__`   |__| /\ |__)|  \|__ |\ |||\ |/ _`  <--
-        \/ |   .__/   |  |/~~\|  \|__/|___| \||| \|\__>
+     ....................########...########...########..##....##..########..########. ....................##........##....##..##....##..###...##..##.....##.##.....## ....................##........##........##........####..##..##.....##.##.....## ....................######....##...####.##...####.##.##.##..##.....##.########. ....................##........##....##..##....##..##..####..##.....##.##...##.. ....................##........##....##..##....##..##...###..##.....##.##....##. ....................########...########...########..##....##..########..##.....## 
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 EOF
     echo -e -n "${nocolor}"
