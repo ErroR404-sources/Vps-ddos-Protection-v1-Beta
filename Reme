@@ -1,7 +1,7 @@
-git clone https://github.com/omererbilgin/protection-for-VPS.git
+git clone https://github.com/ErroR404-sources/Vps-ddos-Protection-v1-Beta.git
  
- cd protection-for-VPS
+ cd Vps-ddos-Protection-v1-Beta
  
- chmod +x run.sh
+ chmod +x ErroR-Vps l-Protection v1.sh
  
- sudo ./run.sh
+ sudo ./ErroR-Vps l-Protection v1.sh
