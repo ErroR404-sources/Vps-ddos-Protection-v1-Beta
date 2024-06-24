@@ -1,6 +1,6 @@
 Protection-VPS
 
-wget https://raw.githubusercontent.com/praiman99/Protection-VPS/beginner/Protection-VPS.sh && chmod +x Protection-VPS.sh && ./Protection-VPS.sh
+wget https://raw.githubusercontent.com/ Vps-ddos-Protection-v1-Beta/ && chmod +x Protection-VPS.sh && ./Protection-VPS.sh
 </pre></p>
 
 <h3 align="center">Additional Info</h3>
