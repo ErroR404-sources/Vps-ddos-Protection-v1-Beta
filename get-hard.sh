@@ -1,9 +1,4 @@
 #!/bin/bash
-# Script to Harden Security on Ubuntu 16.04 LTS (untested on anything else)
-# This VPS Server Hardening script is designed to be run on new VPS deployments to simplify a lot of the
-# basic hardening that can be done to protect your server. I assimilated several design ideas from AMega's
-# VPS hardening script which I found on Github seemingly abandoned. I am very happy to finish it.
-
 function akguy_banner() {
     cat << "EOF"
  𝘿𝘿𝙤𝙎 𝙋𝙧𝙤𝙩𝙚𝙘𝙩𝙞𝙤𝙣 𝙁𝙤𝙧 𝙑𝙈 𝙑𝙥𝙨 𝘽𝙮 404 𝙀𝙧𝙧𝙤𝙍
