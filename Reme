@@ -1,8 +1,0 @@
-# cmds to safe the vps 
-git clone https://github.com/ErroR404-sources/Vps-ddos-Protection-v1-Beta.git
- 
- cd Vps-ddos-Protection-v1-Beta
- 
- chmod +x ErroR-Vps l-Protection v1.sh
- 
- sudo ./ErroR-Vps l-Protection v1.sh
