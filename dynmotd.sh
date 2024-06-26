@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# dynamic message of the day
-# Robert Tulke, rt@debian.sh
+# dynamic message of the day ErroR
+# ErroR Devlopment 
 
 
 
@@ -9,13 +9,13 @@
 VERSION="dynmotd v1.9"
 
 ## configuration and logfile
-MAINLOG="/root/.dynmotd/maintenance.log"
-ENVFILE="/root/.dynmotd/environment.cfg"
+MAINLOG="/root/.nmotd/maintenance.log"
+ENVFILE="/root/.nmotd/environment.cfg"
 
 ## install path
 DYNMOTD_INSTALL_PATH="/usr/local/bin"     # path where "dynmotd -i" is to be installed /without trailing slash
 DYNMOTD_PROFILE="/etc/profile.d/motd.sh"  # file where dynmotd should be loaded
-DYNMOTD_FILENAME="dynmotd"                # file name to be used for the installation
+DYNMOTD_FILENAME="nmotd"                # file name to be used for the installation
 
 ## enable system related information about your system
 SYSTEM_INFO="1"             # show system information
