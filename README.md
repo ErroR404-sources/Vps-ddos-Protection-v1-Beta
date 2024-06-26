@@ -1,7 +1,4 @@
-Protection-VPS
-
-wget https://raw.githubusercontent.com/ Vps-ddos-Protection-v1-Beta/Protection-VPS.sh && chmod +x Protection-VPS.sh && ./Protection-VPS.sh
-</pre></p>
+Protection-VPS By Botnet and DDoS
 
 <h3 align="center">Additional Info</h3>
 Recommended OS :
