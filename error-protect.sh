@@ -44,7 +44,7 @@ function setup_environment() {
     clear
 
     # Set Vars
-    LOGFILE='/var/log/server_hardening.log'
+    LOGFILE='/var/log/server_error.log'
     SSHDFILE='/etc/ssh/sshd_config'
 }
 
@@ -69,7 +69,7 @@ function begin_log() {
     echo -e "---------------------------------------------------- " | tee -a "$LOGFILE"
     echo -e " $(date +%m.%d.%Y_%H:%M:%S) : SCRIPT STARTED SUCCESSFULLY " | tee -a "$LOGFILE"
     echo -e "---------------------------------------------------- " | tee -a "$LOGFILE"
-    echo -e "------- AKcryptoGUY's VPS Hardening Script --------- " | tee -a "$LOGFILE"
+    echo -e "------- 𝗘𝗿𝗿𝗼𝗥 𝗩𝗽𝘀 𝗣𝗿𝗼𝘁𝗲𝗰𝘁𝗶𝗼𝗻 𝗙𝗼𝗿 𝗕𝗼𝘁𝗻𝗲𝘁 𝗔𝘁𝘁𝗮𝗰𝗸𝘀  --------- " | tee -a "$LOGFILE"
     echo -e "---------------------------------------------------- \n" | tee -a "$LOGFILE"
     echo -e -n "${nocolor}"
     sleep 2
@@ -288,7 +288,7 @@ function add_user() {
     else 	echo -e -n "${yellow}"
         clear
         echo  -e "----------------------------------------------------- " >> $LOGFILE 2>&1
-        echo  "    ** User chose not to create a new user **" >> $LOGFILE 2>&1
+        echo  "    ** 𝗖𝗿𝗲𝗮𝘁𝗲 𝗡𝗲𝘄 𝗨𝘀𝗲𝗿 **" >> $LOGFILE 2>&1
         echo  -e "-----------------------------------------------------" >> $LOGFILE 2>&1
     fi
     echo -e -n "${lightgreen}"
@@ -448,7 +448,7 @@ function prompt_rootlogin {
     clear
     echo -e -n "${yellow}"
     echo -e "--------------------------------------------------- " | tee -a "$LOGFILE"
-    echo -e " Your root login settings are:" "$ROOTLOGINP" | tee -a "$LOGFILE"
+    echo -e " 𝗬𝗼𝘂𝗿 𝗿𝗼𝗼𝘁 𝘀𝗲𝘁𝘁𝗶𝗻𝗴𝘀 " "$ROOTLOGINP" | tee -a "$LOGFILE"
     echo -e "--------------------------------------------------- " | tee -a "$LOGFILE"
     echo -e -n "${nocolor}"
 }
@@ -530,7 +530,7 @@ function disable_passauth() {
     else
         echo -e -n "${yellow}"
         echo -e "---------------------------------------------------- " | tee -a "$LOGFILE"
-        echo -e " With no RSA key; I can't disable PasswordAuthentication." | tee -a "$LOGFILE"
+        echo -e " 𝗡𝗼 𝗥𝗦𝗛 𝗸𝗲𝘆 𝗘𝗿𝗿𝗼𝗥 𝘀𝗲𝘁𝗶𝗶𝗻𝗴𝘀 " | tee -a "$LOGFILE"
         echo -e "---------------------------------------------------- \n" | tee -a "$LOGFILE"
         echo -e -n "${nocolor}"
     fi
@@ -621,7 +621,7 @@ function ufw_config() {
 ## 𝗕𝗼𝘁𝗻𝗲𝘁 𝗗𝗲𝘀𝘁𝗿𝗼𝘆𝗲𝗿 ##
 ###################
 
-function server_hardening() {
+function server_error() {
     # prompt users on whether to harden server or not
     echo -e -n "${lightcyan}"
     figlet Get Hard | tee -a "$LOGFILE"
@@ -799,7 +799,7 @@ function motd_install() {
 }
 
 ##################
-## Restart SSHD ##
+## 𝗥𝘀𝘀𝗵 𝗥𝗲-𝘀𝘁𝗮𝗿𝘁 ##
 ##################
 
 function restart_sshd() {
@@ -868,9 +868,9 @@ function restart_sshd() {
     fi
 }
 
-######################
-## Install Complete ##
-######################
+########################################################
+## 𝙄𝙣𝙨𝙩𝙖𝙡𝙡𝙞𝙣𝙜 𝙨𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮 𝙔𝙤𝙪𝙧 𝙑𝙥𝙨 𝙞𝙨 𝙥𝙧𝙤𝙩𝙚𝙘𝙩𝙚𝙙 𝘽𝙮 404 𝙀𝙧𝙧𝙤𝙍 ##
+########################################################
 
 function install_complete() {
     # Display important login variables before exiting script
@@ -900,8 +900,8 @@ function install_complete() {
     else echo -e "${lightcyan} --> UFW was not installed or configured" | tee -a "$LOGFILE"
     fi
     # if [ "${GETHARD,,}" = "yes" ] || [ "${GETHARD,,}" = "y" ]
-    # then echo -e " --> The server and networking layer were hardened <--" | tee -a "$LOGFILE"
-    # else echo -e " --> The server and networking layer were NOT hardened" | tee -a "$LOGFILE"
+    # then echo -e " --> The server and networking layer were protected <--" | tee -a "$LOGFILE"
+    # else echo -e " --> The server and networking layer were NOT protected" | tee -a "$LOGFILE"
     # fi
     if [ "${KSPLICE,,}" = "yes" ] || [ "${KSPLICE,,}" = "y" ]
     then echo -e " You installed Oracle's Ksplice to update without reboot" | tee -a "$LOGFILE"
